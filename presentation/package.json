@@ -4,11 +4,11 @@
   "description": "",
   "scripts": {
     "dev": "remark-builder dev",
-    "build": "remark-builder build"
+    "build": "remark-builder build -o ../docs"
   },
   "author": "Nicklas Utgaard",
   "license": "MIT",
   "devDependencies": {
-    "@nutgaard/remark-slide-builder": "0.0.1-beta.2"
+    "@nutgaard/remark-slide-builder": "0.0.1-beta.3"
   }
 }

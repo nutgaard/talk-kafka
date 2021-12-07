@@ -1,0 +1,17 @@
+# Kafka - Terminologi
+
+<img src="resources/kafka-commit-log.png" width="100%" style="filter: invert(); mix-blend-mode: lighten;" />
+
+???
+
+Så var det denne "commit-logg" greia vi har nevnt ett par ganger nå.
+
+Vi kan tenke på det som en helt vanlig liste, men det er kun lov å legge til nye elementer på slutten av listen.
+Litt sånn som git sin commit logg, eller hvordan blockchains fungerer (vel, minus en hel del krypto).
+
+På bilde er "92" marker striplet linje for å indikere at neste melding vil havne i på offset 92.
+Offset på en topic/partisjon er i bunn og grunn bare ett teller felt som som er strengt stigende, og holder styr på rekkefølgen på meldingene der.
+
+Men det er også to andre "pekere" på tegningen. Delete retention point holder styr på når (og om) innhold kan slettes pga tombstone (tomme /null) elementer.
+
+Cleaner point er punktet som sier noe om hvor mye av topicen som har blitt utsatt for log compaction.

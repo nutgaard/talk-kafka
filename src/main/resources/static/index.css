@@ -1,0 +1,75 @@
+:root {
+    --bg-color: #f6f5f9;
+    /*--accent-color: #4abdac;*/
+    --accent-color: #c1272d;
+    --highlight: #d98285;
+    --highlight-dark: #c27477;
+    --highlight-darker: #995c5e;
+    --ring: #e0e0e0;
+    --accent-text-color: #ffffff;
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: "DejaVu Sans", sans-serif;
+}
+body {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 3rem 1fr 3rem;
+    grid-gap: 0.5rem;
+
+    background-color: var(--bg-color);
+}
+
+header {
+    grid-area: header;
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+main {
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+header, main, footer {
+    padding: 0.5rem;
+}
+
+textarea {
+    resize: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+textarea:focus {
+    outline: none;
+    border-color: var(--highlight);
+    box-shadow: 0 0 0 3px var(--highlight)
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--ring);
+    background-color: var(--highlight);
+    line-height: 1.375rem;
+}
+button:hover {
+    background-color: var(--highlight-dark);
+}
+button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--highlight);
+}
+button:active {
+    background-color: var(--highlight-darker);
+}

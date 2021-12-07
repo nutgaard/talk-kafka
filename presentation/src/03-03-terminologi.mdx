@@ -1,0 +1,25 @@
+# Kafka - Terminologi
+
+<img src="resources/kafka-system.png"/>
+
+???
+
+**Partition:**
+Kafka er kjent for å ha ekstremt god ytelse, og spesielt throughput, e.g hvor mange meldinger den kan håndtere.
+En av måtene dette er løst på er ved å dele trafikk-byrden på flere.
+
+Si f.eks at en broker/server bare hadde hadde ett gammelt modem for internett, eller en gammel rusten CPU.
+Da spiller det egentlig ingen rolle hvor raskt andre deler er, siden man får en bottleneck som struper ytelsen.
+
+Men kafka kan da altså skalere "horisonsalt", dvs at man kan få bedre ytelse på "kafka" ved å starte en ekstra server.
+Ved å bruke flere servere får man også ett mer robust kafka-cluster, siden flere ting kan feile før det faktisk påvirker bruken.
+
+**Replicas:**
+For å forhindre datatap så replikeres data mellom ulike brokere. På bilde er dette marker med `Leader` og `Follower` (eller replica).
+Når vi skriver en melding til kafka så finner man først ut hvilke partisjon meldinen skal til (hash av keyen gir oss det),
+deretter kontakter man brokeren som har `leader` for den partisjonen.
+
+Brokeren vil deretter skrive meldingen til sin commit log, og deretter kontakte eventuelle followers slik at disse blir oppdatert.
+Her finnes det er property `acks` som vi kan styre, som sier noe om hvor mange followers som må være oppdatert før vi antar at skrivingen er OK.
+
+På bilde er ting veldig balansert, men det er ingenting i veien med at server kanskje bare er en follower for en partisjon om ting ikke går opp.

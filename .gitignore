@@ -1,2 +1,5 @@
 node_modules/
 .idea/
+kafkadata/
+target/
+license.json

@@ -1,0 +1,31 @@
+# Kafka - Terminologi
+
+<img src="resources/kafka-system.png"/>
+
+???
+
+Overordnet så finnes det ett par ord og uttrykk som kan være greia å ha kontroll på.
+
+**Broker (Node/Server):**
+En broker er serveren vi kontakter når vi ønsker å lese eller skrive noe til kafka.
+Typisk har man flere noder som kjører i parallell slik at om en stopper så vil fortsatt ting fungere.
+
+På bilde ovenfor har vi tegnet opp to store "bokser" for å representere dette.
+
+_Analogi_: Slack, og alle serverne de har tilgjengelig  som vi kan koble oss til for å chatte sammen.
+
+**Topic:**
+Topics er hovedkonseptet man forholder seg til når man skal lese/skrive noe til kafka.
+Dette er hoved inndelingen av meldinger, og det er på dette nivået vi i NAV gir tilganger til lesing og skriving.
+F.eks fikk SF tilgang til å lese en topic kalt `personoversikt.henvendelse-henvendelse` når de skulle laste inn all data fra henvendelse.
+
+_Analogi_: En spesifik kanal
+
+**Record:**
+På en topic putter vi meldinger eller "Records", dette er den infomasjonen vi ønsker å dele med konsumentene av gitt topic.
+På kafka er dette bare en byte-array, så man kan serialisere det til det formatet som passer best for situasjonen. e.g xml, json, avro, protobuf etc
+
+_Analogi_: En melding til våre venner i en kanal
+
+
+** Så litt mer i dypden**

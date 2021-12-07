@@ -1,0 +1,18 @@
+# Kafka - Terminologi
+
+<img src="resources/kafka-compaction.png" width="100%" style="filter: invert(); mix-blend-mode: lighten;" />
+
+???
+
+Log-compaction er processen hvor man fjerner duplikate innslag på topicen ved å forkaste meldinger som man oppdager at i senere tid har blitt oppdatert.
+
+F.eks henvendelsene vi sender til SF, så vil disse oppdateres når bruker leser meldingen de har mottatt.
+Da legger vi en oppdatert record på kafka-topicen, men med samme nøkkel som før.
+Når kafka så kjører log compaction, så vil alle tidligere meldinger bli borte.
+
+
+Dette er også noe av det som gjør kafka litt vanskelig å forholde seg til.
+For alle disse pekerene og ryddingen som skjer i bakgrunnen er ikke noe man har direkte kontroll på.
+Det er etter det jeg vet ingen måte å instrusere kafka i å kjøre log compaction for f.eks de 2 første millioner meldinger på en topic.
+
+Man har en hel del properties man kan konfigurere på for å få ønsket oppførsel. Men det er ikke alltid like enkelt å se hvilken effekt det vil ha.

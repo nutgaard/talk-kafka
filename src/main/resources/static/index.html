@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Hello, Kafka</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="input.css">
+</head>
+<body>
+<header>
+    <h1>Hello Kafka!</h1>
+</header>
+<main>
+    <article class="control-panel">
+        <section class="input">
+            <h2>Input</h2>
+            <form id="input_form">
+                <textarea id="input"></textarea>
+                <div>
+                    <button type="button" data-action="send" data-count="1">Send 1</button>
+                    <button type="button" data-action="send" data-count="5">Send 5</button>
+                    <button type="button" data-action="send" data-count="10">Send 10</button>
+                </div>
+            </form>
+        </section>
+        <section class="output">
+            <h2>Output</h2>
+            <textarea id="output"></textarea>
+        </section>
+    </article>
+</main>
+<footer></footer>
+</body>
+<script src="index.js" type="application/javascript"></script>
+</html>

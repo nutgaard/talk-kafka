@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  kafka:
+    image: "lensesio/box"
+    ports:
+      - 3030:3030
+      - 9092:9092
+      - 9200:9200
+    volumes:
+      - ./kafkadata:/data
+      - ./license.json:/var/run/lenses/license.conf
+    environment:
+      ADV_HOST: 127.0.0.1
+#      SAMPLEDATA: 0
+#      RUNNING_SAMPLEDATA: 0
+#      RUNTESTS: 0

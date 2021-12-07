@@ -1,0 +1,13 @@
+body {
+
+}
+.remark-slide-content {
+
+}
+
+.credits {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    opacity: 0.5;
+}

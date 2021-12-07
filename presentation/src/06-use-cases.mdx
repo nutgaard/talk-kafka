@@ -1,0 +1,30 @@
+# Kafka - Bruksområder
+
+- Erstatting for MQ
+- Aktivitetssporing
+- Metrikker
+- Logg aggregering
+- Stream processing
+- Event sourcing
+
+
+<div class="credits">
+    <a target="_blank" href="https://kafka.apache.org/documentation/#uses">https://kafka.apache.org/documentation/#uses</a>
+</div>
+
+???
+
+- event sourcing, er ett annet arkitektur mønster hvor endringer er holdt styr på som en tidsserie.
+  Dette kan minne litt om hvordan vi overfører "hendelser" mellom henvendelse og dialogstyring.
+
+- stream processing, er f.eks lengre applikasjons-flyter hvor mange ting skal skje, og man lar data flyte mellom ulike faser ved hjelp av kafka.
+  På den måten kan må få separert ansvarsområder, og lage små rendyrkede tjenenester.
+  Prosesseringen dialogstyring gjør når den mottar en hendelse kan ha mange ulike steg, her kunne vi f.eks utnyttet kafka fremfor persistering til DB mellom hvert steg.
+
+
+**MEN:** det passer ikke til alt. I tilfeller hvor man har krav om synkronitet, så vil ikke kafka være en god fit.
+F.eks om mininnboks hadde brukt kafka til henvendelse, så ville ikke nødvendig meldingen være lagret i henvendelse når bruker sjekket oversikten sin like etter innsending.
+I sånne tilfeller kreves det en form for synkron tilbakemelding til bruker.
+Det kan løses ved at man midlertidig lagrer ting i en liten database, men på ett eller annet tidspunkt går vinning opp i spinninga, og det er like greit å gjøre operasjonen synkront.
+
+Videre behandling av meldingen (f.eks oppretting av oppgave til NKS) kunne derimot blitt gjort med kafka.
